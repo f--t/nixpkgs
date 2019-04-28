@@ -18,11 +18,11 @@ let
   };
 in stdenv.mkDerivation rec {
   pname = "fwupd";
-  version = "1.2.3";
+  version = "1.2.8";
 
   src = fetchurl {
     url = "https://people.freedesktop.org/~hughsient/releases/fwupd-${version}.tar.xz";
-    sha256 = "11qpgincndahq96rbm2kgcy9kw5n9cmbbilsrqcqcyk7mvv464sl";
+    sha256 = "0qbvq52c0scn1h99i1rf2la6rrhckin6gb02k7l0v3g07mxs20wc";
   };
 
   outputs = [ "out" "lib" "dev" "devdoc" "man" "installedTests" ];
@@ -41,7 +41,7 @@ in stdenv.mkDerivation rec {
 
   patches = [
     ./fix-paths.patch
-    ./add-option-for-installation-sysconfdir.patch
+    ./0001-added-options-for-sysconfdir_install.patch
 
     # installed tests are installed to different output
     # we also cannot have fwupd-tests.conf in $out/etc since it would form a cycle
